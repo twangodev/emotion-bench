@@ -1,0 +1,12 @@
+[project]
+name = "emotion-bench"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fish-audio-sdk",
+]
+
+[tool.uv.sources]
+fish-audio-sdk = { git = "https://github.com/fishaudio/fish-audio-python", rev = "v1.0.0rc1" }
