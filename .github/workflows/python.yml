@@ -53,6 +53,7 @@ jobs:
     strategy:
       matrix:
         model: ["s1", "speech-1.6", "speech-1.5"]
+      max-parallel: 1
       fail-fast: false
     steps:
       - name: Checkout
