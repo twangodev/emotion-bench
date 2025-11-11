@@ -1,5 +1,7 @@
 """Estimate TTS API costs for running the benchmark."""
 
+import os
+
 from emotion_bench.emotions import get_all_emotions
 from emotion_bench.reference_voices import get_reference_ids
 
@@ -39,12 +41,18 @@ def estimate_cost():
         total_chars += chars
         total_bytes += bytes_count
 
-    # Multiply by number of voices being tested
+    # Get NUM_RUNS and number of voices
+    num_runs = int(os.getenv("NUM_RUNS", "1"))
     num_voices = len(reference_ids)
+
+    # Multiply by voices and runs
+    total_api_calls = len(emotion_phrases) * num_voices * num_runs
 
     # Calculate cost ($15 per 1M UTF-8 bytes)
     cost_per_million_bytes = 15.0
-    estimated_cost = ((total_bytes * num_voices) / 1_000_000) * cost_per_million_bytes
+    estimated_cost = (
+        (total_bytes * num_voices * num_runs) / 1_000_000
+    ) * cost_per_million_bytes
 
     # Calculate actual phrases per emotion
     num_emotions = len(emotion_breakdown)
@@ -56,13 +64,18 @@ def estimate_cost():
     print("=" * 60)
     print(f"Emotions: {num_emotions}")
     print(f"Phrases per emotion: {phrases_per_emotion:.0f}")
-    print(f"Total test cases: {len(emotion_phrases)}")
+    print(f"Runs per phrase: {num_runs}")
     print(f"Voices to test: {num_voices}")
-    print(f"Total TTS calls: {len(emotion_phrases) * num_voices}")
     print()
-    print(f"Total characters: {total_chars:,}")
-    print(f"Total UTF-8 bytes: {total_bytes:,}")
-    print(f"Total UTF-8 MB: {total_bytes / 1_000_000:.3f}")
+    print(f"Base test cases: {len(emotion_phrases)}")
+    print(
+        f"Total TTS calls: {total_api_calls:,} ({len(emotion_phrases)} × {num_voices} voices × {num_runs} runs)"
+    )
+    print()
+    print(f"Characters per run: {total_chars:,}")
+    print(f"UTF-8 bytes per run: {total_bytes:,}")
+    print(f"Total UTF-8 bytes (all runs): {total_bytes * num_voices * num_runs:,}")
+    print(f"Total UTF-8 MB: {(total_bytes * num_voices * num_runs) / 1_000_000:.3f}")
     print()
     print(f"Estimated TTS cost: ${estimated_cost:.4f}")
     print()

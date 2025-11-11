@@ -14,6 +14,7 @@ class BenchmarkResult:
     voice: str
     phrase_idx: int
     phrase: str
+    run_number: int
     status: str  # PASS, FAIL, or ERROR
     transcription: str | None
     error: str | None
@@ -31,6 +32,7 @@ class BenchmarkCollector:
         voice: str,
         phrase_idx: int,
         phrase: str,
+        run_number: int,
         status: str,
         transcription: str | None,
         error: str | None,
@@ -42,6 +44,7 @@ class BenchmarkCollector:
                 voice=voice,
                 phrase_idx=phrase_idx,
                 phrase=phrase,
+                run_number=run_number,
                 status=status,
                 transcription=transcription,
                 error=error,
@@ -57,6 +60,7 @@ class BenchmarkCollector:
                     "voice": r.voice,
                     "phrase_idx": r.phrase_idx,
                     "phrase": r.phrase,
+                    "run_number": r.run_number,
                     "status": r.status,
                     "transcription": r.transcription,
                     "error": r.error,
