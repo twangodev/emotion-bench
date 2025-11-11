@@ -1,20 +1,13 @@
 # Fish Audio Emotion Registry
-# All 64+ supported emotions with contextual test phrases
+# Official emotions from Fish Audio S1 specification plus additional unofficial emotions
 # Each emotion has 10 different phrases for comprehensive testing
 
-basic_emotions:
-  happy:
-    - "What wonderful news this is!"
-    - "I'm so pleased with how everything turned out!"
-    - "This brings such joy to my heart!"
-    - "What a beautiful day we're having!"
-    - "I couldn't be happier about this outcome!"
-    - "Everything is going so well right now!"
-    - "This is the best thing that could have happened!"
-    - "I'm feeling absolutely fantastic today!"
-    - "What a delightful surprise this is!"
-    - "I'm thrilled to share this good news!"
+# ============================================================================
+# OFFICIAL FISH AUDIO EMOTIONS (51 emotional markers)
+# These are officially supported by Fish Audio S1
+# ============================================================================
 
+basic_emotions:
   sad:
     - "I'm sorry to hear about that situation."
     - "This is such a heartbreaking turn of events."
@@ -50,18 +43,6 @@ basic_emotions:
     - "This is going to be so much fun!"
     - "I'm beyond excited about this opportunity!"
     - "This is a dream come true!"
-
-  calm:
-    - "Everything will work out just fine."
-    - "Let's approach this with a clear mind."
-    - "There's no need to rush or worry."
-    - "We can handle this situation peacefully."
-    - "Take a deep breath and relax."
-    - "Let's stay composed and focused."
-    - "Everything is under control."
-    - "We'll work through this step by step."
-    - "There's plenty of time to figure this out."
-    - "Let's maintain our peace of mind."
 
   nervous:
     - "I'm not sure if this is going to work."
@@ -290,6 +271,42 @@ basic_emotions:
     - "Yeah, I'm sure that's the real reason."
     - "Right, because that's so believable."
     - "Oh absolutely, couldn't agree more."
+
+  interested:
+    - "This topic really captures my attention."
+    - "I'm genuinely intrigued by this concept."
+    - "Tell me more about this subject."
+    - "This holds my interest completely."
+    - "I'm engaged with this discussion."
+    - "This piques my curiosity significantly."
+    - "I find this very compelling."
+    - "I'm absorbed in understanding this."
+    - "This has my full attention now."
+    - "I'm captivated by this idea."
+
+  confused:
+    - "I don't quite understand what's happening here."
+    - "This doesn't make any sense to me."
+    - "I'm having trouble following this logic."
+    - "Can you explain that again please?"
+    - "I'm lost and need clarification."
+    - "This is puzzling and unclear."
+    - "I'm struggling to comprehend this."
+    - "I'm baffled by this situation."
+    - "This leaves me perplexed."
+    - "I'm uncertain about what this means."
+
+  joyful:
+    - "This fills me with such happiness!"
+    - "I'm overflowing with joy right now!"
+    - "What a wonderfully joyous occasion!"
+    - "My heart is full of gladness!"
+    - "I'm radiating happiness today!"
+    - "This brings me pure delight!"
+    - "I'm celebrating this joyful moment!"
+    - "I feel such elation and cheer!"
+    - "This is a time of great joy!"
+    - "I'm beaming with happiness!"
 
 advanced_emotions:
   disdainful:
@@ -604,7 +621,24 @@ advanced_emotions:
     - "This is pleasantly funny."
     - "I find this lightheartedly humorous."
 
-speaking_styles:
+# ============================================================================
+# OFFICIAL TONE CONTROL & SPECIAL MARKERS (15 total)
+# These markers can be placed anywhere in a sentence
+# ============================================================================
+
+tone_and_special_markers:
+  "in a hurry tone":
+    - "We need to leave right now, there's no time!"
+    - "Quickly, we're running late already!"
+    - "Hurry up, we can't wait any longer!"
+    - "We have to move fast on this!"
+    - "Time is running out, let's go!"
+    - "Speed it up, we're behind schedule!"
+    - "We need to rush through this part!"
+    - "No time to waste, let's move!"
+    - "Quickly now, every second counts!"
+    - "We're in a rush, let's finish this!"
+
   whispering:
     - "Can you hear what I'm saying to you?"
     - "Please keep this between us."
@@ -629,6 +663,30 @@ speaking_styles:
     - "I need you to focus right now!"
     - "Everybody needs to hear this!"
 
+  screaming:
+    - "Get away from me right now!"
+    - "Help me, somebody please!"
+    - "This is absolutely terrifying!"
+    - "I can't take this anymore!"
+    - "Leave me alone immediately!"
+    - "Stop this right this instant!"
+    - "I'm yelling at the top of my lungs!"
+    - "This is making me scream!"
+    - "I'm shrieking with emotion!"
+    - "Listen to my urgent cries!"
+
+  "soft tone":
+    - "Let me tell you something gently."
+    - "I'm speaking softly and calmly now."
+    - "Please listen to these tender words."
+    - "I'm using a gentle voice here."
+    - "Let me speak to you quietly."
+    - "I'm talking in a soothing manner."
+    - "Hear these words spoken softly."
+    - "I'm keeping my tone gentle and mild."
+    - "Listen to this calm, quiet voice."
+    - "I'm speaking with a soft touch."
+
   laughing:
     - "This is the funniest thing ever!"
     - "I can't stop giggling at this!"
@@ -640,6 +698,42 @@ speaking_styles:
     - "I find this incredibly amusing!"
     - "This has me in stitches!"
     - "I'm having a great time laughing!"
+
+  chuckling:
+    - "That's rather amusing, I must say."
+    - "I'm quietly laughing to myself."
+    - "This brings a light chuckle."
+    - "I'm chuckling at that thought."
+    - "This gets a soft laugh from me."
+    - "I'm having a quiet giggle about this."
+    - "That's quite funny in a subtle way."
+    - "I'm chuckling under my breath."
+    - "This earns a gentle laugh."
+    - "I'm quietly amused by this."
+
+  sobbing:
+    - "Everything has fallen apart completely."
+    - "I'm crying uncontrollably right now."
+    - "I can't stop these heavy sobs."
+    - "I'm weeping with deep grief."
+    - "I'm breaking down in tears."
+    - "I'm overwhelmed with sorrow."
+    - "I'm crying from the depths of my soul."
+    - "I'm sobbing inconsolably."
+    - "I'm in floods of tears."
+    - "I'm bawling my eyes out."
+
+  "crying loudly":
+    - "I can't hold back these loud sobs anymore!"
+    - "I'm wailing with intense emotion!"
+    - "The tears are flowing with loud cries!"
+    - "I'm crying out loud in despair!"
+    - "I'm bawling and can't stop!"
+    - "My cries echo through the room!"
+    - "I'm weeping loudly and openly!"
+    - "I'm crying out in anguish!"
+    - "These are not quiet tears, I'm wailing!"
+    - "I'm sobbing loudly without restraint!"
 
   sighing:
     - "Things could have been so different."
@@ -653,6 +747,98 @@ speaking_styles:
     - "What might have been, sadly."
     - "I release this breath of resignation."
 
+  panting:
+    - "I'm out of breath from running."
+    - "I need to catch my breath here."
+    - "I'm breathing heavily after that effort."
+    - "I'm gasping for air right now."
+    - "Let me recover my breath a moment."
+    - "I'm panting from the exertion."
+    - "I'm breathing hard and fast."
+    - "I need a second to steady my breathing."
+    - "I'm winded from that activity."
+    - "My breathing is labored and heavy."
+
+  groaning:
+    - "This is going to be difficult to handle."
+    - "Ugh, not this again."
+    - "This is such a burden."
+    - "I'm groaning at this prospect."
+    - "This is going to be painful."
+    - "Oh no, here we go again."
+    - "This is going to be tough."
+    - "I'm moaning about this situation."
+    - "This is so tiresome."
+    - "What a chore this will be."
+
+  "crowd laughing":
+    - "The entire group burst into laughter!"
+    - "Everyone around started laughing together!"
+    - "The crowd erupted in collective laughter!"
+    - "Laughter spread through the whole room!"
+    - "Multiple voices joined in laughing!"
+    - "The audience broke into group laughter!"
+    - "Everyone started laughing at once!"
+    - "The crowd's laughter filled the space!"
+    - "Collective amusement rippled through everyone!"
+    - "The whole group laughed in unison!"
+
+  "background laughter":
+    - "You can hear laughter in the background."
+    - "There's distant laughter behind this scene."
+    - "Ambient laughter fills the air."
+    - "Laughter echoes softly in the distance."
+    - "You can detect laughter happening nearby."
+    - "There's a backdrop of gentle laughter."
+    - "Soft laughter can be heard around us."
+    - "Laughter permeates the atmosphere."
+    - "There's subtle laughter in the background."
+    - "Faint laughter accompanies this moment."
+
+  "audience laughing":
+    - "The audience responded with laughter!"
+    - "The crowd laughed at that remark!"
+    - "The spectators burst into laughter!"
+    - "The audience found that hilarious!"
+    - "Laughter erupted from the viewers!"
+    - "The crowd showed their amusement with laughter!"
+    - "The audience laughed in response!"
+    - "The onlookers reacted with laughter!"
+    - "The audience's laughter was immediate!"
+    - "The crowd laughed appreciatively!"
+
+# ============================================================================
+# UNOFFICIAL EMOTIONS & MARKERS
+# These may work but are not officially documented by Fish Audio
+# Results may be less predictable
+# ============================================================================
+
+unofficial_emotions:
+  happy:
+    - "What wonderful news this is!"
+    - "I'm so pleased with how everything turned out!"
+    - "This brings such joy to my heart!"
+    - "What a beautiful day we're having!"
+    - "I couldn't be happier about this outcome!"
+    - "Everything is going so well right now!"
+    - "This is the best thing that could have happened!"
+    - "I'm feeling absolutely fantastic today!"
+    - "What a delightful surprise this is!"
+    - "I'm thrilled to share this good news!"
+
+  calm:
+    - "Everything will work out just fine."
+    - "Let's approach this with a clear mind."
+    - "There's no need to rush or worry."
+    - "We can handle this situation peacefully."
+    - "Take a deep breath and relax."
+    - "Let's stay composed and focused."
+    - "Everything is under control."
+    - "We'll work through this step by step."
+    - "There's plenty of time to figure this out."
+    - "Let's maintain our peace of mind."
+
+unofficial_markers:
   breathing:
     - "I need to catch my breath for a moment."
     - "Let me take a few deep breaths."
@@ -701,18 +887,6 @@ speaking_styles:
     - "I'm catching my breath in amazement!"
     - "This made me gasp in disbelief!"
 
-  groaning:
-    - "This is going to be difficult to handle."
-    - "Ugh, not this again."
-    - "This is such a burden."
-    - "I'm groaning at this prospect."
-    - "This is going to be painful."
-    - "Oh no, here we go again."
-    - "This is going to be tough."
-    - "I'm moaning about this situation."
-    - "This is so tiresome."
-    - "What a chore this will be."
-
   mumbling:
     - "I'm not sure what to say about this."
     - "Something something under my breath."
@@ -737,18 +911,6 @@ speaking_styles:
     - "I'm expressing displeasure under my breath."
     - "I'm quietly griping about this."
 
-  screaming:
-    - "Get away from me right now!"
-    - "Help me, somebody please!"
-    - "This is absolutely terrifying!"
-    - "I can't take this anymore!"
-    - "Leave me alone immediately!"
-    - "Stop this right this instant!"
-    - "I'm yelling at the top of my lungs!"
-    - "This is making me scream!"
-    - "I'm shrieking with emotion!"
-    - "Listen to my urgent cries!"
-
   sniffling:
     - "I'm trying my best not to cry."
     - "I'm sniffing back the tears."
@@ -760,18 +922,6 @@ speaking_styles:
     - "I'm barely holding it together."
     - "I'm trying not to break down."
     - "I'm suppressing my tears."
-
-  sobbing:
-    - "Everything has fallen apart completely."
-    - "I'm crying uncontrollably right now."
-    - "I can't stop these heavy sobs."
-    - "I'm weeping with deep grief."
-    - "I'm breaking down in tears."
-    - "I'm overwhelmed with sorrow."
-    - "I'm crying from the depths of my soul."
-    - "I'm sobbing inconsolably."
-    - "I'm in floods of tears."
-    - "I'm bawling my eyes out."
 
   stuttering:
     - "I don't know how to explain this properly."

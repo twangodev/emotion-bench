@@ -12,9 +12,13 @@ def _load_emotions() -> dict[str, list[str]]:
 
     # Combine all emotion categories
     all_emotions = {}
+    # Official emotions and markers
     all_emotions.update(data.get("basic_emotions", {}))
     all_emotions.update(data.get("advanced_emotions", {}))
-    all_emotions.update(data.get("speaking_styles", {}))
+    all_emotions.update(data.get("tone_and_special_markers", {}))
+    # Unofficial emotions and markers
+    all_emotions.update(data.get("unofficial_emotions", {}))
+    all_emotions.update(data.get("unofficial_markers", {}))
 
     return all_emotions
 
