@@ -5,6 +5,8 @@ from pathlib import Path
 import json
 from tabulate import tabulate
 
+from tests.test_emotions import get_model
+
 
 @dataclass
 class BenchmarkResult:
@@ -57,6 +59,7 @@ class BenchmarkCollector:
     def save_results(self, output_file: str = "benchmark_results.json"):
         """Save results to JSON file."""
         data = {
+            "model": get_model(),
             "results": [
                 {
                     "emotion": r.emotion,
@@ -139,6 +142,7 @@ class BenchmarkCollector:
         lines = [
             "# Emotion Benchmark Summary",
             "",
+            f"**Model:** {get_model()}  ",
             f"**Total Tests:** {summary['total_tests']}  ",
             f"**Pass:** {summary['pass_count']} | **Fail:** {summary['fail_count']} | **Error:** {summary['error_count']}  ",
             f"**Success Rate:** {summary['success_rate']}%",

@@ -18,6 +18,11 @@ def get_num_runs() -> int:
     return int(os.getenv("NUM_RUNS", "1"))
 
 
+def get_model() -> str:
+    """Get the TTS model to use from environment variable."""
+    return os.getenv("MODEL", "s1")
+
+
 @pytest.mark.parametrize("reference_id", get_reference_ids())
 @pytest.mark.parametrize("emotion,phrase,phrase_idx,category", get_all_emotions())
 def test_emotion_benchmark(
@@ -45,6 +50,7 @@ def test_emotion_benchmark(
     text_with_emotion = f"({emotion}) {phrase}"
     voice_label = reference_id if reference_id else "default"
     num_runs = get_num_runs()
+    model = get_model()
 
     # Create output directory for this emotion
     audio_dir = Path("output/audio") / emotion
@@ -59,7 +65,10 @@ def test_emotion_benchmark(
         try:
             # Step 1: Generate audio using TTS
             audio_bytes = generate_speech(
-                client=fish_client, text=text_with_emotion, reference_id=reference_id
+                client=fish_client,
+                text=text_with_emotion,
+                reference_id=reference_id,
+                model=model,
             )
 
             # Save audio file (include run number if NUM_RUNS > 1)
