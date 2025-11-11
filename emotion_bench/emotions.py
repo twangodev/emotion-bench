@@ -18,8 +18,13 @@ def _load_emotions() -> tuple[dict[str, list[str]], dict[str, str]]:
     emotion_to_category = {}
 
     # Load each category and track which category each emotion belongs to
-    for category_name in ["basic_emotions", "advanced_emotions", "tone_and_special_markers",
-                          "unofficial_emotions", "unofficial_markers"]:
+    for category_name in [
+        "basic_emotions",
+        "advanced_emotions",
+        "tone_and_special_markers",
+        "unofficial_emotions",
+        "unofficial_markers",
+    ]:
         category_data = data.get(category_name, {})
         all_emotions.update(category_data)
 
