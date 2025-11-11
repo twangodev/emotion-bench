@@ -18,7 +18,7 @@ def estimate_cost():
     total_chars = 0
     total_bytes = 0
 
-    for emotion, phrase, phrase_idx in emotion_phrases:
+    for emotion, phrase, phrase_idx, _ in emotion_phrases:
         if emotion not in emotion_breakdown:
             emotion_breakdown[emotion] = []
 
