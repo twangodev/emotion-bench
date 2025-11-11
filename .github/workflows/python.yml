@@ -69,6 +69,11 @@ jobs:
       - name: Install dependencies
         run: uv sync
 
+      - name: Estimate Cost
+        env:
+          NUM_RUNS: ${{ vars.NUM_RUNS }}
+        run: uv run python estimate_cost.py
+
       - name: Run emotion benchmark
         env:
           FISH_AUDIO_API_KEY: ${{ secrets.FISH_AUDIO_API_KEY }}
