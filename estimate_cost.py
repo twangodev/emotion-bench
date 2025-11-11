@@ -1,9 +1,41 @@
 """Estimate TTS API costs for running the benchmark."""
 
+import math
 import os
+
+from scipy import stats
 
 from emotion_bench.emotions import get_all_emotions
 from emotion_bench.reference_voices import get_reference_ids
+
+# Statistical constants
+Z_SCORE_95 = stats.norm.ppf(0.975)  # 95% confidence interval
+Z_SCORE_99 = stats.norm.ppf(0.995)  # 99% confidence interval
+WORST_CASE_PROPORTION = 0.5  # Maximum variance for margin of error
+
+# Cost constants
+COST_PER_MILLION_BYTES = 15.0  # Fish Audio TTS pricing
+
+
+def calculate_confidence_intervals(sample_size: float) -> tuple[float, float]:
+    """Calculate margin of error for 95% and 99% confidence intervals.
+
+    Args:
+        sample_size: Number of samples in the test
+
+    Returns:
+        Tuple of (margin_error_95, margin_error_99) as proportions (0-1)
+    """
+    if sample_size <= 0:
+        return 0.0, 0.0
+
+    margin_error_95 = Z_SCORE_95 * math.sqrt(
+        WORST_CASE_PROPORTION * (1 - WORST_CASE_PROPORTION) / sample_size
+    )
+    margin_error_99 = Z_SCORE_99 * math.sqrt(
+        WORST_CASE_PROPORTION * (1 - WORST_CASE_PROPORTION) / sample_size
+    )
+    return margin_error_95, margin_error_99
 
 
 def estimate_cost():
@@ -48,15 +80,20 @@ def estimate_cost():
     # Multiply by voices and runs
     total_api_calls = len(emotion_phrases) * num_voices * num_runs
 
-    # Calculate cost ($15 per 1M UTF-8 bytes)
-    cost_per_million_bytes = 15.0
+    # Calculate cost
     estimated_cost = (
         (total_bytes * num_voices * num_runs) / 1_000_000
-    ) * cost_per_million_bytes
+    ) * COST_PER_MILLION_BYTES
 
     # Calculate actual phrases per emotion
     num_emotions = len(emotion_breakdown)
     phrases_per_emotion = len(emotion_phrases) / num_emotions if num_emotions > 0 else 0
+
+    # Calculate statistical confidence intervals
+    sample_size_per_emotion = phrases_per_emotion * num_runs * num_voices
+    margin_error_95, margin_error_99 = calculate_confidence_intervals(
+        sample_size_per_emotion
+    )
 
     # Print summary
     print("=" * 60)
@@ -66,6 +103,11 @@ def estimate_cost():
     print(f"Phrases per emotion: {phrases_per_emotion:.0f}")
     print(f"Runs per phrase: {num_runs}")
     print(f"Voices to test: {num_voices}")
+    print()
+    print("STATISTICAL CONFIDENCE:")
+    print(f"Sample size per emotion: {sample_size_per_emotion:.0f} tests")
+    print(f"Margin of error (95% CI): ±{margin_error_95 * 100:.1f}%")
+    print(f"Margin of error (99% CI): ±{margin_error_99 * 100:.1f}%")
     print()
     print(f"Base test cases: {len(emotion_phrases)}")
     print(
