@@ -6,7 +6,20 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fish-audio-sdk",
+    "pytest>=9.0.0",
+    "pytest-xdist>=3.8.0",
+    "python-dotenv>=1.2.1",
+    "pyyaml>=6.0.3",
+    "tabulate>=0.9.0",
 ]
 
 [tool.uv.sources]
 fish-audio-sdk = { git = "https://github.com/fishaudio/fish-audio-python", rev = "v1.0.0rc1" }
+
+[tool.pytest.ini_options]
+addopts = "-n 5"
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.4",
+]
