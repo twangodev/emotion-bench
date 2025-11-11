@@ -19,7 +19,7 @@ def get_num_runs() -> int:
 
 
 @pytest.mark.parametrize("reference_id", get_reference_ids())
-@pytest.mark.parametrize("emotion,phrase,phrase_idx", get_all_emotions())
+@pytest.mark.parametrize("emotion,phrase,phrase_idx,category", get_all_emotions())
 def test_emotion_benchmark(
     fish_client: FishAudio,
     benchmark_collector,
@@ -27,6 +27,7 @@ def test_emotion_benchmark(
     emotion: str,
     phrase: str,
     phrase_idx: int,
+    category: str,
 ):
     """Test that emotion tags do not leak into STT transcriptions.
 
@@ -39,6 +40,7 @@ def test_emotion_benchmark(
         emotion: The emotion tag (e.g., "happy")
         phrase: The test phrase for this emotion
         phrase_idx: The phrase number (1-10)
+        category: The emotion category (e.g., "basic_emotions")
     """
     text_with_emotion = f"({emotion}) {phrase}"
     voice_label = reference_id if reference_id else "default"
@@ -92,6 +94,7 @@ def test_emotion_benchmark(
             phrase_idx=phrase_idx,
             phrase=phrase,
             run_number=run + 1,
+            category=category,
             status=result_status,
             transcription=transcription,
             error=error_message,

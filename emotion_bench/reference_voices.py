@@ -11,7 +11,7 @@ load_dotenv()
 REFERENCE_IDS = [
     "802e3bc2b27e49c2995d23ef70e6ac89",  # Energetic Male
     "b545c585f631496c914815291da4e893",  # Friendly Women
-    "8ba9b8b845e342da9d511d4e0c2ff733",  # E-girl
+    "ca3007f96ae7499ab87d27ea3599956a",  # E-girl
 ]
 
 

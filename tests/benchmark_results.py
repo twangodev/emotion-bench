@@ -15,6 +15,7 @@ class BenchmarkResult:
     phrase_idx: int
     phrase: str
     run_number: int
+    category: str
     status: str  # PASS, FAIL, or ERROR
     transcription: str | None
     error: str | None
@@ -33,6 +34,7 @@ class BenchmarkCollector:
         phrase_idx: int,
         phrase: str,
         run_number: int,
+        category: str,
         status: str,
         transcription: str | None,
         error: str | None,
@@ -45,6 +47,7 @@ class BenchmarkCollector:
                 phrase_idx=phrase_idx,
                 phrase=phrase,
                 run_number=run_number,
+                category=category,
                 status=status,
                 transcription=transcription,
                 error=error,
@@ -61,6 +64,7 @@ class BenchmarkCollector:
                     "phrase_idx": r.phrase_idx,
                     "phrase": r.phrase,
                     "run_number": r.run_number,
+                    "category": r.category,
                     "status": r.status,
                     "transcription": r.transcription,
                     "error": r.error,
@@ -187,6 +191,7 @@ class BenchmarkCollector:
             emotion_table.append(
                 [
                     emotion,
+                    results[0].category,
                     results[0].voice,
                     f"{success_rate:.1f}%",
                     pass_count,
@@ -197,13 +202,14 @@ class BenchmarkCollector:
             )
 
         # Sort by success rate (best first)
-        emotion_table.sort(key=lambda x: float(x[2].rstrip("%")), reverse=True)
+        emotion_table.sort(key=lambda x: float(x[3].rstrip("%")), reverse=True)
 
         lines.append(
             tabulate(
                 emotion_table,
                 headers=[
                     "Emotion",
+                    "Category",
                     "Voice",
                     "Success Rate",
                     "Pass",
