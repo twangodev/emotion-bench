@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [tool.uv.sources]
-fish-audio-sdk = { git = "https://github.com/fishaudio/fish-audio-python", rev = "v1.0.0rc1" }
+fish-audio-sdk = { git = "https://github.com/fishaudio/fish-audio-python", branch = "feat/reference_id" }
 
 [tool.pytest.ini_options]
 addopts = "-n 5"

@@ -1,7 +1,6 @@
 """Fish Audio TTS client wrapper."""
 
 from fishaudio import FishAudio
-from fishaudio.types import TTSConfig
 
 
 def generate_speech(
@@ -18,12 +17,9 @@ def generate_speech(
     Returns:
         Audio bytes in MP3 format
     """
-    # Create TTS config with reference_id if provided
-    config = TTSConfig(reference_id=reference_id) if reference_id else TTSConfig()
-
     # Collect all audio chunks
     audio_buffer = bytearray()
-    for chunk in client.tts.convert(text=text, config=config, model=model):
+    for chunk in client.tts.convert(text=text, reference_id=reference_id, model=model):
         audio_buffer.extend(chunk)
 
     return bytes(audio_buffer)

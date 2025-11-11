@@ -64,7 +64,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "fish-audio-sdk", git = "https://github.com/fishaudio/fish-audio-python?rev=v1.0.0rc1" },
+    { name = "fish-audio-sdk", git = "https://github.com/fishaudio/fish-audio-python?branch=feat%2Freference_id" },
     { name = "pytest", specifier = ">=9.0.0" },
     { name = "pytest-xdist", specifier = ">=3.8.0" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
@@ -87,8 +87,8 @@ wheels = [
 
 [[package]]
 name = "fish-audio-sdk"
-version = "1.0.0rc1"
-source = { git = "https://github.com/fishaudio/fish-audio-python?rev=v1.0.0rc1#cf7fc3113e97d8d94f2c14c743d4c2ad6bec1143" }
+version = "1.0.0"
+source = { git = "https://github.com/fishaudio/fish-audio-python?branch=feat%2Freference_id#c65fcaa7a4ef509647d963c695a5b9d21ae73c08" }
 dependencies = [
     { name = "httpx" },
     { name = "httpx-ws" },
