@@ -41,7 +41,7 @@ basic_emotions:
     - "This is the most thrilling news ever!"
     - "I can hardly wait to get started!"
     - "This is going to be so much fun!"
-    - "I'm beyond excited about this opportunity!"
+    - "I'm beyond thrilled about this opportunity!"
     - "This is a dream come true!"
 
   nervous:
@@ -99,9 +99,9 @@ basic_emotions:
     - "This is more than I could have hoped for!"
     - "I'm ecstatic about this development!"
     - "This fills my heart with happiness!"
-    - "I'm so very pleased and grateful!"
+    - "I'm so very pleased and thankful!"
     - "This exceeds all my expectations!"
-    - "I couldn't be more delighted!"
+    - "I couldn't be more pleased with this!"
     - "This is absolutely marvelous!"
 
   scared:
@@ -125,7 +125,7 @@ basic_emotions:
     - "I'm troubled by these developments."
     - "This has me quite concerned."
     - "I'm anxious about the outcome."
-    - "I keep worrying about what might go wrong."
+    - "I keep dwelling on what might go wrong."
     - "This weighs heavily on my mind."
 
   upset:
@@ -138,7 +138,7 @@ basic_emotions:
     - "This has upset my peace of mind."
     - "I'm agitated by these circumstances."
     - "This is really getting to me."
-    - "I find this quite upsetting."
+    - "I find this quite distressing."
 
   frustrated:
     - "Why isn't this working like it should?"
@@ -180,7 +180,7 @@ basic_emotions:
     - "I can't believe I made such a mistake."
     - "My face is turning red right now."
     - "I wish I could disappear."
-    - "This is so awkward and humiliating."
+    - "This is so uncomfortable and humiliating."
     - "I'm mortified by what just happened."
     - "I feel like everyone is staring at me."
     - "I want to hide under a rock."
@@ -214,7 +214,7 @@ basic_emotions:
 
   proud:
     - "I accomplished something truly meaningful today."
-    - "I'm so proud of what we've achieved."
+    - "I'm so satisfied with what we've achieved."
     - "This represents my best work."
     - "I've really outdone myself this time."
     - "I'm honored by this accomplishment."
@@ -243,7 +243,7 @@ basic_emotions:
     - "Your kindness means the world to me."
     - "I'm blessed to have this."
     - "I appreciate everything you've done."
-    - "I'm truly grateful for your assistance."
+    - "I'm truly thankful for your assistance."
     - "Thank you from the bottom of my heart."
     - "I'm so appreciative of this gesture."
     - "I owe you my sincere thanks."
@@ -303,7 +303,7 @@ basic_emotions:
     - "My heart is full of gladness!"
     - "I'm radiating happiness today!"
     - "This brings me pure delight!"
-    - "I'm celebrating this joyful moment!"
+    - "I'm celebrating this wonderful moment!"
     - "I feel such elation and cheer!"
     - "This is a time of great joy!"
     - "I'm beaming with happiness!"
@@ -355,7 +355,7 @@ advanced_emotions:
     - "This has me rolling with laughter!"
     - "I'm losing it over how funny this is!"
     - "I'm laughing so hard I'm crying!"
-    - "This is absolutely hysterical!"
+    - "This is absolutely hilarious!"
 
   indifferent:
     - "It really doesn't matter to me either way."
@@ -600,14 +600,14 @@ advanced_emotions:
   awkward:
     - "This situation is rather uncomfortable for me."
     - "I feel so uneasy right now."
-    - "This is quite an awkward moment."
+    - "This is quite an uncomfortable moment."
     - "I don't know what to say or do."
     - "This feels very strange and uncomfortable."
     - "I'm in an uncomfortable position here."
     - "This is making me feel self-conscious."
     - "I'm experiencing some social discomfort."
     - "This is an uneasy situation."
-    - "I feel out of place and awkward."
+    - "I feel out of place here."
 
   amused:
     - "That's actually quite funny when you think about it."
