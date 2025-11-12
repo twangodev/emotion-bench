@@ -5,7 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "fish-audio-sdk",
+    "fish-audio-sdk==1.0.0rc1",
     "pytest>=9.0.0",
     "pytest-xdist>=3.8.0",
     "python-dotenv>=1.2.1",
@@ -13,9 +13,6 @@ dependencies = [
     "scipy>=1.16.3",
     "tabulate>=0.9.0",
 ]
-
-[tool.uv.sources]
-fish-audio-sdk = { git = "https://github.com/fishaudio/fish-audio-python", branch = "feat/reference_id" }
 
 [tool.pytest.ini_options]
 addopts = "-n 5"

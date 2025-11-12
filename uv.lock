@@ -64,7 +64,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "fish-audio-sdk", git = "https://github.com/fishaudio/fish-audio-python?branch=feat%2Freference_id" },
+    { name = "fish-audio-sdk", specifier = "==1.0.0rc1" },
     { name = "pytest", specifier = ">=9.0.0" },
     { name = "pytest-xdist", specifier = ">=3.8.0" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
@@ -87,13 +87,17 @@ wheels = [
 
 [[package]]
 name = "fish-audio-sdk"
-version = "1.0.0"
-source = { git = "https://github.com/fishaudio/fish-audio-python?branch=feat%2Freference_id#c65fcaa7a4ef509647d963c695a5b9d21ae73c08" }
+version = "1.0.0rc1"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "httpx" },
     { name = "httpx-ws" },
     { name = "ormsgpack" },
     { name = "pydantic" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/ec/96/57f22c0f1fc0168629c1a73640ede62129b134b19852f69bd876eb85de89/fish_audio_sdk-1.0.0rc1.tar.gz", hash = "sha256:521b5f4a81f7847efbf15f1158225a73648d300e2f72185fd82356a04d0873c2", size = 177699, upload-time = "2025-11-12T08:40:17.331Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/43/9e/5c4f756fe6206888495a15a21fd6cc91cae5d2d2bcd954b5d5ad50c41f18/fish_audio_sdk-1.0.0rc1-py3-none-any.whl", hash = "sha256:1d2131a9ac43f671833f616a020554f84b507859ab0bd3820db6fbcbb2e810f8", size = 34875, upload-time = "2025-11-12T08:40:16.125Z" },
 ]
 
 [[package]]
