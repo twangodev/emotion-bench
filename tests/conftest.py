@@ -28,9 +28,9 @@ def pytest_sessionstart(session):
 @pytest.fixture(scope="session")
 def fish_client() -> FishAudio:
     """Create a Fish Audio client instance."""
-    api_key = os.getenv("FISH_AUDIO_API_KEY")
+    api_key = os.getenv("FISH_API_KEY")
     if not api_key:
-        pytest.skip("FISH_AUDIO_API_KEY environment variable not set")
+        pytest.skip("FISH_API_KEY environment variable not set")
 
     return FishAudio(api_key=api_key)
 
